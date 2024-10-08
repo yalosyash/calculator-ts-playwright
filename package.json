@@ -6,7 +6,10 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report --host 127.0.0.1"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
