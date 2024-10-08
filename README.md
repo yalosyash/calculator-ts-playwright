@@ -1,4 +1,4 @@
-[![Run Playwright tests in CI](https://github.com/yalosyash/calculator-ts-playwright/actions/workflows/playwright.yaml/badge.svg)](https://github.com/yalosyash/calculator-ts-playwright/actions/workflows/playwright.yaml)
+[![Playwright tests in CI](https://github.com/yalosyash/calculator-ts-playwright/actions/workflows/playwright.yaml/badge.svg)](https://github.com/yalosyash/calculator-ts-playwright/actions/workflows/playwright.yaml)
 
 # Функция строкового калькулятора
 
