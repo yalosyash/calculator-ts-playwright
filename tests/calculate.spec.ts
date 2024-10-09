@@ -37,6 +37,12 @@ test.describe("Negative tests", () => {
       calculate("(3+2)()");
     }).toThrow("Скобки расставлены неверно!");
   });
+
+  test("Send '10/0', should return Error", () => {
+    expect(() => {
+      calculate("10/0");
+    }).toThrow("Деление на ноль!");
+  });
 });
 
 test.describe("Positive tests", () => {

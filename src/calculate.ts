@@ -89,7 +89,12 @@ function solveExample(arr: string[]): number {
         result *= brackets();
       } else if (arr[currentIndex] === "/") {
         currentIndex++;
-        result /= brackets();
+        let nextNum = brackets();
+        if (nextNum === 0) {
+          throw new Error("Деление на ноль!");
+        } else {
+          result /= nextNum;
+        }
       } else {
         return result;
       }
