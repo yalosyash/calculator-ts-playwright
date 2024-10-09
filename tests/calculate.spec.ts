@@ -5,39 +5,41 @@ test.describe("Negative tests", () => {
   test("Send 'zxc', should return Error", () => {
     expect(() => {
       calculate("zxc");
-    }).toThrow();
+    }).toThrow("Некорректное значение!");
   });
 
   test("Send '3(+2', should return Error", () => {
     expect(() => {
       calculate("3(+ 2");
-    }).toThrow();
+    }).toThrow("Скобки расставлены неверно!");
   });
 
   test("Send '3)+2', should return Error", () => {
     expect(() => {
       calculate("3)+2");
-    }).toThrow();
+    }).toThrow("Скобки расставлены неверно!");
   });
 
   test("Send '(3+2()', should return Error", () => {
     expect(() => {
       calculate("(3+2()");
-    }).toThrow();
+    }).toThrow("Скобки расставлены неверно!");
   });
 
   test("Send '3+(-2-)', should return Error", () => {
     expect(() => {
       calculate("3 + (-2-)");
-    }).toThrow();
+    }).toThrow("Скобки расставлены неверно!");
   });
 
   test("Send '(3+2)()', should return Error", () => {
     expect(() => {
       calculate("(3+2)()");
-    }).toThrow();
+    }).toThrow("Скобки расставлены неверно!");
   });
+});
 
+test.describe("Positive tests", () => {
   test("Should solve 4,5+5=9.5", () => {
     expect(calculate("4,5+5")).toBe(9.5);
   });
@@ -49,9 +51,7 @@ test.describe("Negative tests", () => {
   test("Should solve 5 + 5=10", () => {
     expect(calculate("5 + 5")).toBe(10);
   });
-});
 
-test.describe("Positive tests", () => {
   test("Should solve 1+2+3+4+5+6+7+8+9+0=45", () => {
     expect(calculate("1+2+3+4+5+6+7+8+9+0")).toBe(45);
   });
