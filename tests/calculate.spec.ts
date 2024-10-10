@@ -43,6 +43,30 @@ test.describe("Negative tests", () => {
       calculate("10/0");
     }).toThrow("Деление на ноль!");
   });
+
+  test("Send '*3+5', should return Error", () => {
+    expect(() => {
+      calculate("*3+5");
+    }).toThrow("Знаки расставлены неверно!");
+  });
+
+  test("Send '3+5*', should return Error", () => {
+    expect(() => {
+      calculate("3+5*");
+    }).toThrow("Знаки расставлены неверно!");
+  });
+
+  test("Send '3+5-', should return Error", () => {
+    expect(() => {
+      calculate("3+5-");
+    }).toThrow("Знаки расставлены неверно!");
+  });
+
+  test("Send '3*+5', should return Error", () => {
+    expect(() => {
+      calculate("3*+5");
+    }).toThrow("Знаки расставлены неверно!");
+  });
 });
 
 test.describe("Positive tests", () => {

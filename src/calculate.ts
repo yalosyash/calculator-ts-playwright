@@ -11,10 +11,13 @@ export function calculate(example: string): number {
   if (!bracketsIsMatch(separatedArr)) {
     errorOfBrackets();
   }
-
+  if (!isSignPlacedGood(separatedArr)) {
+    errorOfSigns();
+  }
   return solveExample(separatedArr);
 }
 
+// Функция проверяет, совпадает ли количество открытых и закрытых скобок в массиве значений
 function bracketsIsMatch(arr: string[]): boolean {
   let bracketsCount: number = 0;
 
@@ -31,14 +34,40 @@ function bracketsIsMatch(arr: string[]): boolean {
   return bracketsCount === 0;
 }
 
+// Функция проверяет, есть ли знаки действий в начале, в конце и друг за другом в массиве значений
+function isSignPlacedGood(arr: string[]): boolean {
+  const listOfSigns: string[] = ["*", "/", "+"];
+  if (
+    listOfSigns.includes(arr[arr.length - 1]) ||
+    arr[arr.length - 1] === "-" ||
+    listOfSigns.includes(arr[0])
+  ) {
+    return false;
+  }
+
+  for (let i: number = 0; i < arr.length; i++) {
+    if (listOfSigns.includes(arr[i]) && listOfSigns.includes(arr[i + 1])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Функция выбрасывает исключение, если знаки расставлены неверно
+function errorOfSigns(): void {
+  throw new Error("Знаки расставлены неверно!");
+}
+
+// Функция выбрасывает исключение, если скобки расставлены неверно
 function errorOfBrackets(): void {
   throw new Error("Скобки расставлены неверно!");
 }
 
+// Функция разделяет строку на массив с элементами примера: скобки, знаки, числа
 function separateStrToArr(str: string): string[] {
-  let arr: string[] = [];
-  let listOfSeparatorChars: string[] = ["(", ")", "*", "/", "-", "+"];
+  const listOfSeparatorChars: string[] = ["(", ")", "*", "/", "-", "+"];
   let currentElement: string = "";
+  let arr: string[] = [];
 
   for (let i: number = 0; i < str.length; i++) {
     if (listOfSeparatorChars.includes(str[i])) {
@@ -57,6 +86,7 @@ function separateStrToArr(str: string): string[] {
   return arr;
 }
 
+// Функция решает пример, последовательно проходя по каждому элементу массива
 function solveExample(arr: string[]): number {
   let currentIndex: number = 0;
   let answer: number = num();

@@ -4,7 +4,7 @@
 
 Функция принимает на вход выражение типа `string`, возвращая ответ типа `number`
 
-Код функции покрыт 36-ю [тестами](https://github.com/yalosyash/calculator-ts-playwright/blob/main/tests/calculate.spec.ts) на 100% с использованием фреймворка [**Playwright**](https://playwright.dev/)
+Код функции покрыт 40 [тестами](https://github.com/yalosyash/calculator-ts-playwright/blob/main/tests/calculate.spec.ts) на 100% с использованием фреймворка [**Playwright**](https://playwright.dev/)
 
 Переписан и расширен [предыдущий](https://github.com/yalosyash/calculator) строковый калькулятор с одним оператором
 
